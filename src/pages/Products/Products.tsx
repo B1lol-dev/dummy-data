@@ -4,25 +4,24 @@ import Container from "@/components/helpers/Container";
 import ProductCard from "./components/ProductCard";
 import type { IProduct } from "@/types/api";
 import ProductCardSkeleton from "./components/skeleton/ProductCardSkeleton";
+import axios from "axios";
+import { API_ENPOINTS, API_URL } from "@/constants/api";
 
 const Products = () => {
   const [products, setProducts] = useState<IProduct[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    async function fetchProducts() {
-      try {
-        const response = await fetch("https://dummyjson.com/products?limit=8");
-        const data = await response.json();
-        setProducts(data.products);
+    axios
+      .get(`${API_URL}${API_ENPOINTS.products}?limit=8`)
+      .then((res) => {
+        setProducts(res.data.products);
         setLoading(false);
-      } catch (error) {
-        console.error("Error fetching products:", error);
+      })
+      .catch((err) => {
+        console.error("Error fetching products", err);
         setLoading(false);
-      }
-    }
-
-    fetchProducts();
+      });
   }, []);
 
   if (loading) {
