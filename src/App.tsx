@@ -9,6 +9,7 @@ import Users from "./pages/Users/Users";
 import Posts from "./pages/Posts/Posts";
 import Login from "./pages/Auth/Login";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
+import Product from "./pages/Products/Product";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="/products" element={<Products />} />
+          <Route path="/products/:id" element={<Product />} />
           <Route path="/recipes" element={<Recipes />} />
           <Route path="/users" element={<Users />} />
           <Route path="/posts" element={<Posts />} />
