@@ -20,8 +20,8 @@ const Header = () => {
             </div>
           </Link>
           <ul className="flex flex-wrap gap-6">
-            {navLinks.map((link: string) => (
-              <li>
+            {navLinks.map((link: string, index: number) => (
+              <li key={index}>
                 <Link
                   to={"/" + link}
                   className="text-gray-600 capitalize hover:text-gray-950 transition-colors duration-200"

@@ -47,3 +47,17 @@ export interface IRecipe {
   reviewCount: number;
   mealType: string[];
 }
+
+export interface IPost {
+  id: number;
+  title: string;
+  body: string;
+  userId: number;
+  tags: string[];
+  reactions: number | { likes: number; dislikes: number };
+  user?: {
+    firstName: string;
+    lastName: string;
+    image: string;
+  };
+}
