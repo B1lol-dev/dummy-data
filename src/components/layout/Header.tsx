@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import Container from "../helpers/Container";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { Database } from "lucide-react";
 import { Button } from "../ui/button";
+import { auth } from "@/utils/auth";
 
 const Header = () => {
   const navLinks: string[] = ["products", "users", "recipes", "posts"];
+  const [isLogin, setIsLogin] = useState(auth.token !== "");
 
   return (
     <header>
@@ -22,16 +24,29 @@ const Header = () => {
           <ul className="flex flex-wrap gap-6">
             {navLinks.map((link: string, index: number) => (
               <li key={index}>
-                <Link
+                <NavLink
                   to={"/" + link}
                   className="text-gray-600 capitalize hover:text-gray-950 transition-colors duration-200"
                 >
                   {link}
-                </Link>
+                </NavLink>
               </li>
             ))}
           </ul>
-          <Button>Login</Button>
+          {isLogin ? (
+            <Button
+              onClick={() => {
+                auth.logout();
+                setIsLogin(false);
+              }}
+            >
+              Logout
+            </Button>
+          ) : (
+            <Link to="/login">
+              <Button>Login</Button>
+            </Link>
+          )}
         </nav>
       </Container>
     </header>

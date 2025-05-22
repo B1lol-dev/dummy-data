@@ -5,4 +5,7 @@ export const API_ENPOINTS = {
   products: "/products",
   recipes: "/recipes",
   users: "/users",
+  auth: "/auth",
+  login: "/auth/login",
+  authMe: "/auth/me",
 };
