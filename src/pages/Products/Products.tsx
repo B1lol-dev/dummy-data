@@ -6,6 +6,7 @@ import type { IProduct } from "@/types/api";
 import ProductCardSkeleton from "./components/skeleton/ProductCardSkeleton";
 import axios from "axios";
 import { API_ENPOINTS, API_URL } from "@/constants/api";
+import { Link } from "react-router-dom";
 
 const Products = () => {
   const [products, setProducts] = useState<IProduct[]>([]);
@@ -41,7 +42,9 @@ const Products = () => {
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {products.map((product) => (
-            <ProductCard product={product} key={product.id} />
+            <Link to={"/products/" + product.id} key={product.id}>
+              <ProductCard product={product} />
+            </Link>
           ))}
         </div>
       </Container>

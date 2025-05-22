@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Container from "../helpers/Container";
 import { Link, NavLink } from "react-router-dom";
 import { Database } from "lucide-react";
@@ -7,7 +7,20 @@ import { auth } from "@/utils/auth";
 
 const Header = () => {
   const navLinks: string[] = ["products", "users", "recipes", "posts"];
-  const [isLogin, setIsLogin] = useState(auth.token !== "");
+  const [user, setUser] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    auth
+      .getMyInfo()
+      .then(() => {
+        setUser(true);
+      })
+      .catch(() => {
+        setUser(false);
+      })
+      .finally(() => setLoading(false));
+  }, []);
 
   return (
     <header>
@@ -33,19 +46,23 @@ const Header = () => {
               </li>
             ))}
           </ul>
-          {isLogin ? (
-            <Button
-              onClick={() => {
-                auth.logout();
-                setIsLogin(false);
-              }}
-            >
-              Logout
-            </Button>
+          {!loading ? (
+            user ? (
+              <Button
+                onClick={() => {
+                  auth.logout();
+                  setUser(false);
+                }}
+              >
+                Logout
+              </Button>
+            ) : (
+              <Link to="/login">
+                <Button>Login</Button>
+              </Link>
+            )
           ) : (
-            <Link to="/login">
-              <Button>Login</Button>
-            </Link>
+            <Button disabled>Loading...</Button>
           )}
         </nav>
       </Container>

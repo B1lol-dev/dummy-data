@@ -2,8 +2,6 @@ import { API_ENPOINTS, API_URL } from "@/constants/api";
 import axios from "axios";
 
 class Auth {
-  authMe() {}
-
   token = localStorage.getItem("token") || "";
 
   setToken(token: string) {
