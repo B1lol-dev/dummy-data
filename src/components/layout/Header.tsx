@@ -2,16 +2,10 @@ import React from "react";
 import Container from "../helpers/Container";
 import { Link } from "react-router-dom";
 import { Database } from "lucide-react";
+import { Button } from "../ui/button";
 
 const Header = () => {
-  const navLinks: string[] = [
-    "posts",
-    "comments",
-    "albums",
-    "photos",
-    "todos",
-    "users",
-  ];
+  const navLinks: string[] = ["products", "users", "recipes", "posts"];
 
   return (
     <header>
@@ -37,6 +31,7 @@ const Header = () => {
               </li>
             ))}
           </ul>
+          <Button>Login</Button>
         </nav>
       </Container>
     </header>

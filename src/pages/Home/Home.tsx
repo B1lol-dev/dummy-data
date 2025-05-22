@@ -1,7 +1,12 @@
 import React from "react";
+import Products from "../Products/Products";
 
 const Home = () => {
-  return <></>;
+  return (
+    <>
+      <Products />
+    </>
+  );
 };
 
 export default React.memo(Home);
