@@ -12,7 +12,7 @@ const Users = () => {
 
   useEffect(() => {
     axios
-      .get(`${API_URL}${API_ENPOINTS.users}?limit=8`)
+      .get(`${API_URL}${API_ENPOINTS.users}?limit=0`)
       .then((res) => {
         setUsers(res.data.users);
         setLoading(false);

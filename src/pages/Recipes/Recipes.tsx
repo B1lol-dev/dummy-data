@@ -11,7 +11,7 @@ const Recipes = () => {
   useEffect(() => {
     async function fetchRecipes() {
       try {
-        const response = await fetch("https://dummyjson.com/recipes?limit=8");
+        const response = await fetch("https://dummyjson.com/recipes?limit=0");
         const data = await response.json();
         setRecipes(data.recipes);
         setLoading(false);
