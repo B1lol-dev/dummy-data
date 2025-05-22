@@ -1,54 +1,68 @@
-# React + TypeScript + Vite
+# Dummy Data Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern React SPA showcasing best practices and UI patterns with a dummy API.
 
-Currently, two official plugins are available:
+## 🚀 Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [React](https://react.dev/)
+- [Vite](https://vitejs.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Radix UI](https://www.radix-ui.com/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [tailwind-merge](https://github.com/dcastil/tailwind-merge)
+- [Axios](https://axios-http.com/)
+- [Lucide React](https://lucide.dev/)
+- [React Router DOM](https://reactrouter.com/)
+- [React Hot Toast](https://react-hot-toast.com/)
+- [React Icons](https://react-icons.github.io/react-icons/)
+- [ESLint](https://eslint.org/)
+- [Shadcn](https://ui.shadcn.com/)
+- [21st dev](https://21st.dev)
 
-## Expanding the ESLint configuration
+## 📄 Pages
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Home**
+- **404 (Not Found)**
+- **Products**
+- **Product/[id]**
+- **Users**
+- **Recipes**
+- **Posts**
+- **Login**
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## ✨ Features
+
+- Authentication (Login)
+- Single Page Application (SPA)
+- Client-side routing
+- Lazy loading of routes and components
+- Skeleton loaders for async content
+- Responsive design
+- Accessible UI components (Radix UI)
+- Toast notifications (React Hot Toast)
+- Iconography (Lucide, React Icons)
+- API integration with [dummyjson.com](https://dummyjson.com/)
+- Error boundaries
+- Loading and error states
+- Form validation
+- Code splitting
+- ESLint for code quality
+- Utility-first styling (Tailwind CSS)
+- Type safety (TypeScript)
+- Optimized build (Vite)
+- Clean and maintainable codebase and file structure
+
+## 🛠️ Getting Started
+
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 📦 API
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Powered by [dummyjson.com](https://dummyjson.com/).
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## 📄 License
+
+[MIT](./LICENSE)
