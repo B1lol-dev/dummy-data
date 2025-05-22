@@ -16,7 +16,12 @@ const PostCard = ({ post }: { post: IPost }) => {
       <CardHeader className="pb-2">
         <div className="flex items-center gap-2">
           <Avatar className="border border-gray-300">
-            <AvatarImage src="" alt="Anonymus" className="grayscale" />
+            <AvatarImage
+              src=""
+              alt="Anonymus"
+              className="grayscale"
+              loading="lazy"
+            />
             <AvatarFallback>
               <Glasses />
             </AvatarFallback>

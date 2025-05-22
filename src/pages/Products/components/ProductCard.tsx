@@ -18,6 +18,7 @@ const ProductCard = ({ product }: { product: IProduct }) => {
           src={product.thumbnail || "/placeholder.svg"}
           alt={product.title}
           className="w-full h-full object-contain grayscale hover:grayscale-0 transition-all duration-300"
+          loading="lazy"
         />
         <Badge className="absolute top-2 right-2 bg-black text-white">
           {product.category}

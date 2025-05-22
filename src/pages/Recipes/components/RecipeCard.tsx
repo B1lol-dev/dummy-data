@@ -21,6 +21,7 @@ const RecipeCard = ({ recipe }: { recipe: IRecipe }) => {
           src={recipe.image || "/placeholder.svg?height=200&width=300"}
           alt={recipe.name}
           className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-300"
+          loading="lazy"
         />
         <Badge className="absolute top-2 right-2 bg-black text-white">
           {recipe.cuisine}

@@ -16,9 +16,10 @@ const UserCard = ({ user }: { user: IUser }) => {
       <CardHeader className="flex flex-col items-center pb-2">
         <Avatar className="h-20 w-20 border-2 border-black">
           <AvatarImage
-            src={user.image || "/placeholder.svg"}
+            src={user.image || ""}
             alt={`${user.firstName} ${user.lastName}`}
             className="grayscale"
+            loading="lazy"
           />
           <AvatarFallback>
             {user.firstName[0]}
