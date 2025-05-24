@@ -2,18 +2,18 @@ import { cn } from "@/lib/utils";
 
 export interface LoaderProps {
   variant?:
-    | "circular"
-    | "classic"
-    | "pulse"
-    | "pulse-dot"
-    | "dots"
-    | "typing"
-    | "wave"
-    | "bars"
-    | "terminal"
-    | "text-blink"
-    | "text-shimmer"
-    | "loading-dots";
+  | "circular"
+  | "classic"
+  | "pulse"
+  | "pulse-dot"
+  | "dots"
+  | "typing"
+  | "wave"
+  | "bars"
+  | "terminal"
+  | "text-blink"
+  | "text-shimmer"
+  | "loading-dots";
   size?: "sm" | "md" | "lg";
   text?: string;
   className?: string;
@@ -76,9 +76,8 @@ export function ClassicLoader({
               left: "50%",
               marginLeft:
                 size === "sm" ? "-0.75px" : size === "lg" ? "-1.25px" : "-1px",
-              transformOrigin: `${
-                size === "sm" ? "0.75px" : size === "lg" ? "1.25px" : "1px"
-              } ${size === "sm" ? "10px" : size === "lg" ? "14px" : "12px"}`,
+              transformOrigin: `${size === "sm" ? "0.75px" : size === "lg" ? "1.25px" : "1px"
+                } ${size === "sm" ? "10px" : size === "lg" ? "14px" : "12px"}`,
               transform: `rotate(${i * 30}deg)`,
               opacity: 0,
               animationDelay: `${i * 0.1}s`,

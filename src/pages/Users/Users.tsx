@@ -5,6 +5,7 @@ import { API_ENPOINTS, API_URL } from "@/constants/api";
 import UserCardSkeleton from "./components/skeleton/UserCardSkeleton";
 import UserCard from "./components/UserCard";
 import type { IUser } from "@/types/api";
+import { Link } from "react-router-dom";
 
 const Users = () => {
   const [users, setUsers] = useState<IUser[]>([]);
@@ -40,7 +41,9 @@ const Users = () => {
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {users.map((user) => (
-            <UserCard key={user.id} user={user} />
+            <Link to={"/users/" + user.id} key={user.id}>
+              <UserCard user={user} />
+            </Link>
           ))}
         </div>
       </Container>

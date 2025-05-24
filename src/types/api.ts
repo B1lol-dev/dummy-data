@@ -20,6 +20,8 @@ export interface IUser {
   phone: string;
   username: string;
   image: string;
+  birthDate: string | number | Date;
+  gender: string;
   address: {
     city: string;
     state: string;
@@ -27,6 +29,13 @@ export interface IUser {
   company: {
     name: string;
     department: string;
+  };
+  bank: {
+    cardExpire: string;
+    cardNumber: string;
+    cardType: string;
+    currency: string;
+    iban: string;
   };
 }
 
