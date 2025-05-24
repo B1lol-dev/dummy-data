@@ -38,12 +38,15 @@ interface IAdminProduct {
 const AdminProducts = () => {
   const [products, setProducts] = useState<IAdminProduct[]>([]);
   const [loading, setLoading] = useState(true);
+  const [search, setSearch] = useState("");
+  const [originalProducts, setOriginalProducts] = useState<IAdminProduct[]>([]);
 
   useEffect(() => {
     axios
       .get(`${API_URL}${API_ENPOINTS.products}?limit=0`)
       .then((res) => {
         setProducts(res.data.products);
+        setOriginalProducts(res.data.products);
       })
       .catch((err) => {
         console.error("Error fetching products:", err);
@@ -60,6 +63,19 @@ const AdminProducts = () => {
   const handleDelete = (id: number) => {
     setProducts((prev) => prev.filter((product) => product.id !== id));
     toast.success("Product deleted successfully");
+  };
+
+  const handleSearch = () => {
+    if (!search.trim()) {
+      setProducts(originalProducts);
+      return;
+    }
+
+    setProducts((prev) =>
+      prev.filter((product) =>
+        product.title.toLowerCase().includes(search.toLowerCase())
+      )
+    );
   };
 
   return (
@@ -93,7 +109,15 @@ const AdminProducts = () => {
               </div>
               <div className="relative w-64">
                 <Search className="absolute left-2 top-2.5 h-4 w-4 text-gray-500" />
-                <Input placeholder="Search products..." className="pl-8" />
+                <Input
+                  placeholder="Search products by title..."
+                  className="pl-8"
+                  onChange={(e) => {
+                    setSearch(e.target.value);
+                    handleSearch();
+                  }}
+                  value={search}
+                />
               </div>
             </div>
           </CardHeader>
