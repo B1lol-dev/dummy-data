@@ -20,6 +20,7 @@ import AdminLayout from "./pages/Admin/AdminLayout";
 import Admin from "./pages/Admin/Admin";
 import AdminLogin from "./pages/Admin/AdminLogin";
 import AdminProducts from "./pages/Admin/tabs/AdminProducts";
+import AdminUsers from "./pages/Admin/tabs/AdminUsers";
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
           <Route path="/admin" element={<AdminLayout />}>
             <Route index element={<Admin />} />
             <Route path="products" element={<AdminProducts />} />
+            <Route path="users" element={<AdminUsers />} />
           </Route>
           <Route path="/admin/login" element={<AdminLogin />} />
           <Route path="/login" element={<Login />} />

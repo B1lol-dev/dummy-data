@@ -41,7 +41,7 @@ const AdminProducts = () => {
 
   useEffect(() => {
     axios
-      .get(`${API_URL}${API_ENPOINTS.products}?limit=20`)
+      .get(`${API_URL}${API_ENPOINTS.products}?limit=0`)
       .then((res) => {
         setProducts(res.data.products);
       })
