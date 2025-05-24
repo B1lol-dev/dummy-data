@@ -16,6 +16,8 @@ import Product from "./pages/Products/Product";
 import User from "./pages/Users/User";
 import Recipe from "./pages/Recipes/Recipe";
 import Post from "./pages/Posts/Post";
+import AdminLayout from "./pages/Admin/AdminLayout";
+import Admin from "./pages/Admin/Admin";
 
 function App() {
   return (
@@ -32,6 +34,9 @@ function App() {
             <Route path="/users/:id" element={<User />} />
             <Route path="/posts" element={<Posts />} />
             <Route path="/posts/:id" element={<Post />} />
+          </Route>
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route index element={<Admin />} />
           </Route>
           <Route path="/login" element={<Login />} />
           <Route path="*" element={<ErrorPage />} />
