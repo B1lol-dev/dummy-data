@@ -71,9 +71,12 @@ const User = () => {
 
   return (
     <main className="container mx-auto py-10 px-4">
-      <Link to="/" className="flex items-center text-sm mb-8 hover:underline">
+      <Link
+        to="/users"
+        className="flex items-center text-sm mb-8 hover:underline"
+      >
         <ArrowLeft className="mr-2 h-4 w-4" />
-        Back to cards
+        Back to users
       </Link>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

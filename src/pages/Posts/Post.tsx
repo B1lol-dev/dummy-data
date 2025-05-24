@@ -126,9 +126,12 @@ const Post = () => {
 
   return (
     <main className="container mx-auto py-10 px-4">
-      <Link to="/" className="flex items-center text-sm mb-8 hover:underline">
+      <Link
+        to="/posts"
+        className="flex items-center text-sm mb-8 hover:underline"
+      >
         <ArrowLeft className="mr-2 h-4 w-4" />
-        Back to cards
+        Back to posts
       </Link>
 
       <div className="max-w-3xl mx-auto">
@@ -136,27 +139,29 @@ const Post = () => {
           <CardHeader>
             <div className="flex justify-between items-start">
               {user && (
-                <div className="flex items-center gap-3">
-                  <Avatar className="border border-gray-300">
-                    <AvatarImage
-                      src={user.image || "/placeholder.svg"}
-                      alt={`${user.firstName} ${user.lastName}`}
-                      className="grayscale"
-                    />
-                    <AvatarFallback>
-                      {user.firstName[0]}
-                      {user.lastName[0]}
-                    </AvatarFallback>
-                  </Avatar>
-                  <div>
-                    <p className="font-medium">
-                      {user.firstName} {user.lastName}
-                    </p>
-                    <p className="text-xs text-gray-500">
-                      {new Date().toLocaleDateString()}
-                    </p>
+                <Link to={`/users/${user.id}`}>
+                  <div className="flex items-center gap-3">
+                    <Avatar className="border border-gray-300">
+                      <AvatarImage
+                        src={user.image || "/placeholder.svg"}
+                        alt={`${user.firstName} ${user.lastName}`}
+                        className="grayscale"
+                      />
+                      <AvatarFallback>
+                        {user.firstName[0]}
+                        {user.lastName[0]}
+                      </AvatarFallback>
+                    </Avatar>
+                    <div>
+                      <p className="font-medium">
+                        {user.firstName} {user.lastName}
+                      </p>
+                      <p className="text-xs text-gray-500">
+                        {new Date().toLocaleDateString()}
+                      </p>
+                    </div>
                   </div>
-                </div>
+                </Link>
               )}
               <Button variant="ghost" size="icon" className="rounded-full">
                 <MoreHorizontal className="h-5 w-5" />

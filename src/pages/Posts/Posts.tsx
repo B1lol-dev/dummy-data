@@ -5,6 +5,7 @@ import axios from "axios";
 import PostCard from "./components/PostCard";
 import PostCardSkeleton from "./components/skeleton/PostCardSkeleton";
 import Container from "@/components/helpers/Container";
+import { Link } from "react-router-dom";
 
 const Posts = () => {
   const [posts, setPosts] = useState<IPost[]>([]);
@@ -44,7 +45,9 @@ const Posts = () => {
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {posts.map((post) => (
-            <PostCard key={post.id} post={post} />
+            <Link to={"/posts/" + post.id} key={post.id}>
+              <PostCard post={post} />
+            </Link>
           ))}
         </div>
       </Container>
