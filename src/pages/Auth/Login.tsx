@@ -13,6 +13,7 @@ import { FaGithub, FaGoogle } from "react-icons/fa";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "@/utils/auth";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const [username, setUsername] = useState<string>("");
@@ -21,9 +22,15 @@ const Login = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    auth.login(username, password).then(() => {
-      navigate("/");
-    });
+    auth
+      .login(username, password)
+      .then(() => {
+        navigate("/");
+      })
+      .catch((err) => {
+        console.error("Login failed:", err);
+        toast.error("Username or password is incorrect");
+      });
   };
 
   return (

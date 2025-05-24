@@ -77,7 +77,6 @@ const User = () => {
       </Link>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {/* User Profile Sidebar */}
         <div className="md:col-span-1">
           <Card className="border border-gray-200">
             <CardContent className="pt-6">
@@ -147,7 +146,6 @@ const User = () => {
           </Card>
         </div>
 
-        {/* User Details */}
         <div className="md:col-span-2">
           <Tabs defaultValue="about">
             <TabsList className="grid w-full grid-cols-3">

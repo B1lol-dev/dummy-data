@@ -22,7 +22,7 @@ const ProductPage = () => {
         setProduct(res.data);
       })
       .catch((err) => {
-        console.log(err);
+        console.error(err);
         navigate("/404");
       });
   }, [params.id, navigate]);

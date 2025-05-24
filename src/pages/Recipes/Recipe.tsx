@@ -15,6 +15,7 @@ import { Button } from "@/components/ui/button";
 import { API_ENPOINTS, API_URL } from "@/constants/api";
 import axios from "axios";
 import type { IRecipe } from "@/types/api";
+import toast from "react-hot-toast";
 
 async function getRecipe(id: string) {
   try {
@@ -35,7 +36,10 @@ const Recipe = () => {
   useEffect(() => {
     getRecipe(params.id as string)
       .then((data) => setRecipe(data))
-      .catch((err) => console.error("Error fetching recipe:", err));
+      .catch((err) => {
+        console.error("Error fetching recipe:", err);
+        toast.error("Failed to load recipe. Please try again later.");
+      });
   }, [params.id]);
 
   if (!recipe) {
