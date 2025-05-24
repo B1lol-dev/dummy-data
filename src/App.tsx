@@ -19,6 +19,7 @@ import Post from "./pages/Posts/Post";
 import AdminLayout from "./pages/Admin/AdminLayout";
 import Admin from "./pages/Admin/Admin";
 import AdminLogin from "./pages/Admin/AdminLogin";
+import AdminProducts from "./pages/Admin/tabs/AdminProducts";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
           </Route>
           <Route path="/admin" element={<AdminLayout />}>
             <Route index element={<Admin />} />
+            <Route path="products" element={<AdminProducts />} />
           </Route>
           <Route path="/admin/login" element={<AdminLogin />} />
           <Route path="/login" element={<Login />} />
