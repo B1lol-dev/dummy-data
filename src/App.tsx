@@ -14,6 +14,7 @@ import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import Product from "./pages/Products/Product";
 import User from "./pages/Users/User";
 import Recipe from "./pages/Recipes/Recipe";
+import Post from "./pages/Posts/Post";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path="/users" element={<Users />} />
           <Route path="/users/:id" element={<User />} />
           <Route path="/posts" element={<Posts />} />
+          <Route path="/posts/:id" element={<Post />} />
         </Route>
         <Route path="/login" element={<Login />} />
         <Route path="*" element={<ErrorPage />} />
