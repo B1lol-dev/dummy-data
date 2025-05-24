@@ -6,15 +6,16 @@ import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { API_ENPOINTS, API_URL } from "@/constants/api";
 import type { IUser } from "@/types/api";
+import axios from "axios";
 import { ArrowLeft, Briefcase, Mail, MapPin, Phone } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
 async function getUser(id: string) {
   try {
-    const res = await fetch(`${API_URL}${API_ENPOINTS.users}/${id}`);
-    if (!res.ok) return null;
-    return res.json();
+    const res = await axios.get(`${API_URL}${API_ENPOINTS.users}/${id}`);
+    if (res.status !== 200) return null;
+    return res.data;
   } catch (error) {
     throw new Error(error as string);
   }
@@ -22,11 +23,11 @@ async function getUser(id: string) {
 
 async function getUserPosts(id: string) {
   try {
-    const res = await fetch(
+    const res = await axios.get(
       `${API_URL}${API_ENPOINTS.posts}/user/${id}?limit=3`
     );
-    if (!res.ok) return { posts: [] };
-    return res.json();
+    if (res.status !== 200) return { posts: [] };
+    return res.data;
   } catch (error) {
     throw new Error(error as string);
   }

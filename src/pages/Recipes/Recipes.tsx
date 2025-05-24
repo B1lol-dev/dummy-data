@@ -3,6 +3,7 @@ import type { IRecipe } from "@/types/api";
 import Container from "@/components/helpers/Container";
 import RecipeCardSkeleton from "./components/skeleon/RecipeCardSkeleton";
 import RecipeCard from "./components/RecipeCard";
+import { Link } from "react-router-dom";
 
 const Recipes = () => {
   const [recipes, setRecipes] = useState<IRecipe[]>([]);
@@ -45,7 +46,9 @@ const Recipes = () => {
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {recipes.map((recipe) => (
-            <RecipeCard recipe={recipe} key={recipe.id} />
+            <Link to={"/recipes/" + recipe.id} key={recipe.id}>
+              <RecipeCard recipe={recipe} />
+            </Link>
           ))}
         </div>
       </Container>

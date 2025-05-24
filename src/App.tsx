@@ -9,8 +9,11 @@ import Users from "./pages/Users/Users";
 import Posts from "./pages/Posts/Posts";
 import Login from "./pages/Auth/Login";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
+
+// detail pages
 import Product from "./pages/Products/Product";
 import User from "./pages/Users/User";
+import Recipe from "./pages/Recipes/Recipe";
 
 function App() {
   return (
@@ -21,6 +24,7 @@ function App() {
           <Route path="/products" element={<Products />} />
           <Route path="/products/:id" element={<Product />} />
           <Route path="/recipes" element={<Recipes />} />
+          <Route path="/recipes/:id" element={<Recipe />} />
           <Route path="/users" element={<Users />} />
           <Route path="/users/:id" element={<User />} />
           <Route path="/posts" element={<Posts />} />
