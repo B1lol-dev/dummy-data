@@ -39,12 +39,15 @@ import TabLoader from "../components/TabLoader";
 const AdminUsers = () => {
   const [users, setUsers] = useState<IUser[]>([]);
   const [loading, setLoading] = useState(true);
+  const [search, setSearch] = useState("");
+  const [originalUseres, setOriginalUsers] = useState<IUser[]>([]);
 
   useEffect(() => {
     axios
       .get(`${API_URL}${API_ENPOINTS.users}?limit=0`)
       .then((res) => {
         setUsers(res.data.users);
+        setOriginalUsers(res.data.users);
       })
       .catch((err) => {
         console.error("Error fetching users:", err);
@@ -58,6 +61,21 @@ const AdminUsers = () => {
   const handleDelete = (id: number) => {
     setUsers((prev) => prev.filter((user) => user.id !== id));
     toast.success("User deleted successfully");
+  };
+
+  const handleSearch = () => {
+    if (!search.trim()) {
+      setUsers(originalUseres);
+      return;
+    }
+
+    setUsers((prev) =>
+      prev.filter(
+        (user) =>
+          user.firstName.toLowerCase().includes(search.toLowerCase()) &&
+          user.username.toLowerCase().includes(search.toLowerCase())
+      )
+    );
   };
 
   if (loading) {
@@ -95,7 +113,15 @@ const AdminUsers = () => {
               </div>
               <div className="relative w-64">
                 <Search className="absolute left-2 top-2.5 h-4 w-4 text-gray-500" />
-                <Input placeholder="Search users..." className="pl-8" />
+                <Input
+                  placeholder="Search users by name or username"
+                  className="pl-8"
+                  value={search}
+                  onChange={(e) => {
+                    setSearch(e.target.value);
+                    handleSearch();
+                  }}
+                />
               </div>
             </div>
           </CardHeader>
