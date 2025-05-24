@@ -18,6 +18,7 @@ import Recipe from "./pages/Recipes/Recipe";
 import Post from "./pages/Posts/Post";
 import AdminLayout from "./pages/Admin/AdminLayout";
 import Admin from "./pages/Admin/Admin";
+import AdminLogin from "./pages/Admin/AdminLogin";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
           <Route path="/admin" element={<AdminLayout />}>
             <Route index element={<Admin />} />
           </Route>
+          <Route path="/admin/login" element={<AdminLogin />} />
           <Route path="/login" element={<Login />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
