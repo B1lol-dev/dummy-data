@@ -19,6 +19,9 @@ import React, { useEffect, useState } from "react";
 import type { IUser, IPost } from "@/types/api";
 import axios from "axios";
 import { API_ENPOINTS, API_URL } from "@/constants/api";
+import { auth } from "@/utils/auth";
+import { v4 as uuidv4 } from "uuid";
+import toast from "react-hot-toast";
 
 interface IComment {
   comments: {
@@ -83,6 +86,43 @@ const Post = () => {
 
     getUser(post?.userId as number).then((data) => setUser(data));
   }, [params.id, post?.userId, navigate]);
+
+  const [newComment, setNewComment] = useState("");
+  const handleAddComment = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!newComment.trim()) return;
+    if (!auth.token.trim()) {
+      console.error("User is not authenticated");
+      toast.error("You must be logged in to comment.");
+      return;
+    }
+
+    auth
+      .getMyInfo()
+      .then((data) => {
+        console.log(data);
+        const newCommentData = {
+          id: uuidv4(),
+          user: {
+            username: data.username,
+            id: data.id,
+          },
+          body: newComment,
+        };
+
+        setComments((prev) => {
+          return {
+            comments: [...(prev?.comments || []), newCommentData],
+          };
+        });
+
+        setNewComment("");
+      })
+      .catch((err) => {
+        console.error("Error creating new comment:", err);
+        toast.error(err.message);
+      });
+  };
 
   return (
     <main className="container mx-auto py-10 px-4">
@@ -176,18 +216,21 @@ const Post = () => {
                 </AvatarFallback>
               </Avatar>
             )}
-            <div className="flex-1">
+            <form className="flex-1" onSubmit={handleAddComment}>
               <textarea
                 className="w-full border border-gray-200 rounded-lg p-3 text-sm focus:outline-none focus:ring-2 focus:ring-black"
                 placeholder="Write a comment..."
                 rows={3}
+                onChange={(e) => setNewComment(e.target.value)}
+                required
+                value={newComment}
               />
               <div className="flex justify-end mt-2">
-                <Button className="bg-black hover:bg-gray-800">
+                <Button type="submit" className="bg-black hover:bg-gray-800">
                   Post Comment
                 </Button>
               </div>
-            </div>
+            </form>
           </div>
 
           {/* comments */}

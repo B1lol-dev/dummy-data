@@ -31,6 +31,10 @@ class Auth {
   }
 
   async getMyInfo() {
+    if (!this.token) {
+      throw new Error("No token found. Please log in.");
+    }
+
     try {
       const res = await axios.get(`${API_URL}${API_ENPOINTS.authMe}`, {
         headers: {
