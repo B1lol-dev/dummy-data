@@ -21,6 +21,8 @@ import Admin from "./pages/Admin/Admin";
 import AdminLogin from "./pages/Admin/AdminLogin";
 import AdminProducts from "./pages/Admin/tabs/AdminProducts";
 import AdminUsers from "./pages/Admin/tabs/AdminUsers";
+import AdminRecipes from "./pages/Admin/tabs/AdminRecipes";
+import AdminPosts from "./pages/Admin/tabs/AdminPosts";
 
 function App() {
   return (
@@ -42,6 +44,8 @@ function App() {
             <Route index element={<Admin />} />
             <Route path="products" element={<AdminProducts />} />
             <Route path="users" element={<AdminUsers />} />
+            <Route path="recipes" element={<AdminRecipes />} />
+            <Route path="posts" element={<AdminPosts />} />
           </Route>
           <Route path="/admin/login" element={<AdminLogin />} />
           <Route path="/login" element={<Login />} />
