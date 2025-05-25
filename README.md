@@ -24,11 +24,16 @@ A modern React SPA showcasing best practices and UI patterns with a dummy API.
 - **Home**
 - **404 (Not Found)**
 - **Products**
-- **Product/[id]**
+- **Products/[id]**
 - **Users**
+- **Users/[id]**
 - **Recipes**
+- **Recipes/[id]**
 - **Posts**
+- **Posts/[id]**
 - **Login**
+- **Admin Dashboard**
+  - **Many Tabs**
 
 ## ✨ Features
 
@@ -51,6 +56,7 @@ A modern React SPA showcasing best practices and UI patterns with a dummy API.
 - Type safety (TypeScript)
 - Optimized build (Vite)
 - Clean and maintainable codebase and file structure
+- And more!
 
 ## 🛠️ Getting Started
 
