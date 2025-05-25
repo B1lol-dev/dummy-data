@@ -18,6 +18,7 @@ A modern React SPA showcasing best practices and UI patterns with a dummy API.
 - [ESLint](https://eslint.org/)
 - [Shadcn](https://ui.shadcn.com/)
 - [21st dev](https://21st.dev)
+- [uuid](https://www.npmjs.com/package/uuid)
 
 ## 📄 Pages
 
@@ -32,6 +33,7 @@ A modern React SPA showcasing best practices and UI patterns with a dummy API.
 - **Posts**
 - **Posts/[id]**
 - **Login**
+- **Wip**
 - **Admin Dashboard**
   - **Many Tabs**
 
