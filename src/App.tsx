@@ -25,6 +25,8 @@ import AdminRecipes from "./pages/Admin/tabs/AdminRecipes";
 import AdminPosts from "./pages/Admin/tabs/AdminPosts";
 import AdminOrders from "./pages/Admin/tabs/AdminOrders";
 import AdminAnalytics from "./pages/Admin/tabs/AdminAnalytics";
+import Wip from "./pages/Wip/Wip";
+import AdminReports from "./pages/Admin/tabs/AdminReports";
 
 function App() {
   return (
@@ -50,9 +52,11 @@ function App() {
             <Route path="posts" element={<AdminPosts />} />
             <Route path="orders" element={<AdminOrders />} />
             <Route path="analytics" element={<AdminAnalytics />} />
+            <Route path="reports" element={<AdminReports />} />
           </Route>
           <Route path="/admin/login" element={<AdminLogin />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/wip" element={<Wip />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </Router>
