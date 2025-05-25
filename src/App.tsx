@@ -10,12 +10,15 @@ import Users from "./pages/Users/Users";
 import Posts from "./pages/Posts/Posts";
 import Login from "./pages/Auth/Login";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
+import Wip from "./pages/Wip/Wip";
 
 // detail pages
 import Product from "./pages/Products/Product";
 import User from "./pages/Users/User";
 import Recipe from "./pages/Recipes/Recipe";
 import Post from "./pages/Posts/Post";
+
+// admin pages
 import AdminLayout from "./pages/Admin/AdminLayout";
 import Admin from "./pages/Admin/Admin";
 import AdminLogin from "./pages/Admin/AdminLogin";
@@ -25,9 +28,9 @@ import AdminRecipes from "./pages/Admin/tabs/AdminRecipes";
 import AdminPosts from "./pages/Admin/tabs/AdminPosts";
 import AdminOrders from "./pages/Admin/tabs/AdminOrders";
 import AdminAnalytics from "./pages/Admin/tabs/AdminAnalytics";
-import Wip from "./pages/Wip/Wip";
 import AdminReports from "./pages/Admin/tabs/AdminReports";
 import AdminSettings from "./pages/Admin/tabs/AdminSettings";
+import AdminSupport from "./pages/Admin/tabs/AdminSupport";
 
 function App() {
   return (
@@ -55,6 +58,7 @@ function App() {
             <Route path="analytics" element={<AdminAnalytics />} />
             <Route path="reports" element={<AdminReports />} />
             <Route path="settings" element={<AdminSettings />} />
+            <Route path="support" element={<AdminSupport />} />
           </Route>
           <Route path="/admin/login" element={<AdminLogin />} />
           <Route path="/login" element={<Login />} />
